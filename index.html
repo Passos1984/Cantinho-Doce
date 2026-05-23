@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cantinho Doce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Cantinho Doce" class="logo-img">
+        </div>
+
+        <nav>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#depoimentos">Clientes</a>
+        </nav>
+
+        <a class="btn-topo whatsapp" href="#" onclick="abrirCarrinho(); return false;">
+            Ver Meu Pedido
+        </a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>
+                    Transformando momentos em doces inesquecíveis 💕
+                </h1>
+
+                <p>
+                    Encomende bolos, doces e sobremesas artesanais para qualquer celebração. Entrega rápida e sabor
+                    caseiro.
+                </p>
+
+                <a class="btn-topo whatsapp" href="#produtos">
+                    Montar Meu Pedido
+                </a>
+            </div>
+        </section>
+
+        <section id="produtos">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <div class="produtos-grid">
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="img/bolo-chocolate.jpg" alt="Bolo de Chocolate">
+                    </div>
+                    <h3>Bolo de Chocolate (8 Fatias)</h3>
+                    <p>Massa fofinha de cacau com dupla camada de recheio de brigadeiro belga.</p>
+                    <button type="button" onclick="adicionarAoCarrinho('Bolo de Chocolate (8 Fatias)', 95.00)">Adicionar
+                        - R$ 95,00</button>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="img/bolo-red-velvet.png" alt="Bolo Red Velvet">
+                    </div>
+                    <h3>Bolo Red Velvet (15 Fatias)</h3>
+                    <p>O clássico Red Velvet com recheio cremoso de cream cheese e frutas vermelhas.</p>
+                    <button type="button" onclick="adicionarAoCarrinho('Bolo Red Velvet (15 Fatias)', 140.00)">Adicionar
+                        - R$ 140,00</button>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="img/brigadeiros_gormet.jfif" alt="Caixa Brigadeiros Gourmet">
+                    </div>
+                    <h3>Caixa Gourmet (12 un.)</h3>
+                    <p>Sortidos: Tradicional, Leite Ninho com Nutella e Pistache. Perfeito para presente.</p>
+                    <button type="button"
+                        onclick="adicionarAoCarrinho('Caixa Brigadeiros Gourmet (12 un)', 45.00)">Adicionar - R$
+                        45,00</button>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="img/branquinho.png" alt="Caixa de Branquinhos">
+                    </div>
+                    <h3>Caixa de Branquinhos (12 un.)</h3>
+                    <p>Deliciosos docinhos de leite condensado artesanais cobertos com açúcar cristal.</p>
+                    <button type="button" onclick="adicionarAoCarrinho('Caixa de Branquinhos (12 un)', 35.00)">Adicionar
+                        - R$ 35,00</button>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="img/copo-felicidade.png" alt="Copo da Felicidade">
+                    </div>
+                    <h3>Copo da Felicidade</h3>
+                    <p>Camadas de brownie, creme de ninho, morangos frescos e muito brigadeiro.</p>
+                    <button type="button" onclick="adicionarAoCarrinho('Copo da Felicidade (500ml)', 28.00)">Adicionar -
+                        R$ 28,00</button>
+                </article>
+
+                <article class="card">
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="img/cento_salagados.png" alt="Cento de Salgadinhos">
+                        </div>
+                        <h3>Cento de Salgadinhos</h3>
+                        <p>Monte seu cento! Escolha até 4 sabores e digite a quantidade de cada um (Total: 100 un.).</p>
+
+                        <button type="button" id="btn-toggle-cento" onclick="toggleAreaSalgados()"
+                            style="background-color: #fce4ec; color: #d63384; margin-bottom: 15px; border-radius: 8px;">
+                            ⚙️ Montar Meu Cento
+                        </button>
+
+                        <div id="container-seletores-salgados"
+                            style="padding: 0 15px; margin-bottom: 15px; display: none;">
+
+                            <div class="linha-sabor">
+                                <select id="sabor1">
+                                    <option value="">-- Escolha o Sabor 1 --</option>
+                                    <option value="Coxinha">Coxinha</option>
+                                    <option value="Bolinha de Queijo">Bolinha de Queijo</option>
+                                    <option value="Rissole">Rissole</option>
+                                    <option value="Croquete">Croquete</option>
+                                </select>
+                                <input type="number" id="qtd1" placeholder="Qtd" min="0" max="100">
+                            </div>
+
+                            <div class="linha-sabor" id="linha2" style="display: none;">
+                                <select id="sabor2">
+                                    <option value="">-- Escolha o Sabor 2 --</option>
+                                    <option value="Bolinha de Queijo">Bolinha de Queijo</option>
+                                    <option value="Coxinha">Coxinha</option>
+                                    <option value="Rissole">Rissole</option>
+                                    <option value="Croquete">Croquete</option>
+                                </select>
+                                <input type="number" id="qtd2" placeholder="Qtd" min="0" max="100">
+                            </div>
+
+                            <div class="linha-sabor" id="linha3" style="display: none;">
+                                <select id="sabor3">
+                                    <option value="">-- Escolha o Sabor 3 --</option>
+                                    <option value="Rissole">Rissole</option>
+                                    <option value="Coxinha">Coxinha</option>
+                                    <option value="Bolinha de Queijo">Bolinha de Queijo</option>
+                                    <option value="Croquete">Croquete</option>
+                                </select>
+                                <input type="number" id="qtd3" placeholder="Qtd" min="0" max="100">
+                            </div>
+
+                            <div class="linha-sabor" id="linha4" style="display: none;">
+                                <select id="sabor4">
+                                    <option value="">-- Escolha o Sabor 4 --</option>
+                                    <option value="Croquete">Croquete</option>
+                                    <option value="Coxinha">Coxinha</option>
+                                    <option value="Rissole">Rissole</option>
+                                    <option value="Bolinha de Queijo">Bolinha de Queijo</option>
+                                </select>
+                                <input type="number" id="qtd4" placeholder="Qtd" min="0" max="100">
+                            </div>
+
+                            <button type="button" id="btn-add-sabor" onclick="revelarMaisLinhasSabores()"
+                                style="background-color: transparent; color: #aaa; border: 1px dashed #ddd; font-size: 0.8rem; padding: 8px; border-radius: 5px;">
+                                + Adicionar Sabor (Até 4)
+                            </button>
+
+                        </div>
+
+                        <button type="button" id="btn-finalizar-cento" onclick="pedirSalgadosCustomizados()"
+                            style="display: none; border-radius: 8px;">
+                            Adicionar ao Pedido - R$ 70,00
+                        </button>
+
+                    </article>
+
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2 class="section-title">Sobre</h2>
+            <p>
+                Cantinho Doce prepara receitas caseiras com carinho, priorizando ingredientes de qualidade e
+                atendimento personalizado.
+            </p>
+        </section>
+
+        <section id="depoimentos">
+            <h2 class="section-title">Clientes Felizes</h2>
+            <div class="depoimentos-grid">
+                <article class="card">
+                    <p>“O bolo estava incrível e a entrega foi super rápida. Recomendo!”</p>
+                    <strong>- Mariana</strong>
+                </article>
+                <article class="card">
+                    <p>“Atendimento excelente e doces deliciosos. Voltarei a pedir com certeza.”</p>
+                    <strong>- Lucas</strong>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Cantinho Doce • Feito com amor.
+    </footer>
+
+    <button class="btn-carrinho" onclick="abrirCarrinho()">
+        🛒 Carrinho (<span id="contador-carrinho">0</span>)
+    </button>
+
+    <div id="modal-carrinho" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal" onclick="fecharCarrinho()">&times;</span>
+            <h2>Seu Pedido 🛒</h2>
+            <div id="itens-carrinho">
+            </div>
+            <div class="total-carrinho">
+                Total: R$ <span id="valor-total">0.00</span>
+            </div>
+            <button class="btn-finalizar" onclick="enviarPedido()">Finalizar no WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
